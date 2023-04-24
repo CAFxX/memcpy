@@ -110,13 +110,6 @@
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
-.memcpy256_16:
-	movups xmm0, xmmword ptr [rsi+240]
-	movups xmmword ptr [rdi+240], xmm0
-	jmp .memcpy240_16
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
 .memcpy255_16:
 	movups xmm0, xmmword ptr [rsi+239]
 	movups xmmword ptr [rdi+239], xmm0
@@ -218,14 +211,7 @@
 .memcpy241_16:
 	movups xmm0, xmmword ptr [rsi+225]
 	movups xmmword ptr [rdi+225], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy240_16:
-	movups xmm0, xmmword ptr [rsi+224]
-	movups xmmword ptr [rdi+224], xmm0
-	jmp .memcpy224_16
+	jmp .memcpy240_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -330,14 +316,7 @@
 .memcpy225_16:
 	movups xmm0, xmmword ptr [rsi+209]
 	movups xmmword ptr [rdi+209], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy224_16:
-	movups xmm0, xmmword ptr [rsi+208]
-	movups xmmword ptr [rdi+208], xmm0
-	jmp .memcpy208_16
+	jmp .memcpy224_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -442,14 +421,7 @@
 .memcpy209_16:
 	movups xmm0, xmmword ptr [rsi+193]
 	movups xmmword ptr [rdi+193], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy208_16:
-	movups xmm0, xmmword ptr [rsi+192]
-	movups xmmword ptr [rdi+192], xmm0
-	jmp .memcpy192_16
+	jmp .memcpy208_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -554,14 +526,7 @@
 .memcpy193_16:
 	movups xmm0, xmmword ptr [rsi+177]
 	movups xmmword ptr [rdi+177], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy192_16:
-	movups xmm0, xmmword ptr [rsi+176]
-	movups xmmword ptr [rdi+176], xmm0
-	jmp .memcpy176_16
+	jmp .memcpy192_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -666,14 +631,7 @@
 .memcpy177_16:
 	movups xmm0, xmmword ptr [rsi+161]
 	movups xmmword ptr [rdi+161], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy176_16:
-	movups xmm0, xmmword ptr [rsi+160]
-	movups xmmword ptr [rdi+160], xmm0
-	jmp .memcpy160_16
+	jmp .memcpy176_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -778,14 +736,7 @@
 .memcpy161_16:
 	movups xmm0, xmmword ptr [rsi+145]
 	movups xmmword ptr [rdi+145], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy160_16:
-	movups xmm0, xmmword ptr [rsi+144]
-	movups xmmword ptr [rdi+144], xmm0
-	jmp .memcpy144_16
+	jmp .memcpy160_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -890,14 +841,7 @@
 .memcpy145_16:
 	movups xmm0, xmmword ptr [rsi+129]
 	movups xmmword ptr [rdi+129], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy144_16:
-	movups xmm0, xmmword ptr [rsi+128]
-	movups xmmword ptr [rdi+128], xmm0
-	jmp .memcpy128_16
+	jmp .memcpy144_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -1002,14 +946,7 @@
 .memcpy129_16:
 	movups xmm0, xmmword ptr [rsi+113]
 	movups xmmword ptr [rdi+113], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy128_16:
-	movups xmm0, xmmword ptr [rsi+112]
-	movups xmmword ptr [rdi+112], xmm0
-	jmp .memcpy112_16
+	jmp .memcpy128_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -1114,14 +1051,7 @@
 .memcpy113_16:
 	movups xmm0, xmmword ptr [rsi+97]
 	movups xmmword ptr [rdi+97], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy112_16:
-	movups xmm0, xmmword ptr [rsi+96]
-	movups xmmword ptr [rdi+96], xmm0
-	jmp .memcpy96_16
+	jmp .memcpy112_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -1226,14 +1156,7 @@
 .memcpy97_16:
 	movups xmm0, xmmword ptr [rsi+81]
 	movups xmmword ptr [rdi+81], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy96_16:
-	movups xmm0, xmmword ptr [rsi+80]
-	movups xmmword ptr [rdi+80], xmm0
-	jmp .memcpy80_16
+	jmp .memcpy96_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -1338,14 +1261,7 @@
 .memcpy81_16:
 	movups xmm0, xmmword ptr [rsi+65]
 	movups xmmword ptr [rdi+65], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy80_16:
-	movups xmm0, xmmword ptr [rsi+64]
-	movups xmmword ptr [rdi+64], xmm0
-	jmp .memcpy64_16
+	jmp .memcpy80_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -1450,14 +1366,7 @@
 .memcpy65_16:
 	movups xmm0, xmmword ptr [rsi+49]
 	movups xmmword ptr [rdi+49], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy64_16:
-	movups xmm0, xmmword ptr [rsi+48]
-	movups xmmword ptr [rdi+48], xmm0
-	jmp .memcpy48_16
+	jmp .memcpy64_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -1562,14 +1471,7 @@
 .memcpy49_16:
 	movups xmm0, xmmword ptr [rsi+33]
 	movups xmmword ptr [rdi+33], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy48_16:
-	movups xmm0, xmmword ptr [rsi+32]
-	movups xmmword ptr [rdi+32], xmm0
-	jmp .memcpy32_16
+	jmp .memcpy48_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -1674,14 +1576,7 @@
 .memcpy33_16:
 	movups xmm0, xmmword ptr [rsi+17]
 	movups xmmword ptr [rdi+17], xmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy32_16:
-	movups xmm0, xmmword ptr [rsi+16]
-	movups xmmword ptr [rdi+16], xmm0
-	jmp .memcpy16_16
+	jmp .memcpy32_16
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -1786,6 +1681,111 @@
 .memcpy17_16:
 	movups xmm0, xmmword ptr [rsi+1]
 	movups xmmword ptr [rdi+1], xmm0
+	jmp .memcpy16_16
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy256_16:
+	movups xmm0, xmmword ptr [rsi+240]
+	movups xmmword ptr [rdi+240], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy240_16:
+	movups xmm0, xmmword ptr [rsi+224]
+	movups xmmword ptr [rdi+224], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy224_16:
+	movups xmm0, xmmword ptr [rsi+208]
+	movups xmmword ptr [rdi+208], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy208_16:
+	movups xmm0, xmmword ptr [rsi+192]
+	movups xmmword ptr [rdi+192], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy192_16:
+	movups xmm0, xmmword ptr [rsi+176]
+	movups xmmword ptr [rdi+176], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy176_16:
+	movups xmm0, xmmword ptr [rsi+160]
+	movups xmmword ptr [rdi+160], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy160_16:
+	movups xmm0, xmmword ptr [rsi+144]
+	movups xmmword ptr [rdi+144], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy144_16:
+	movups xmm0, xmmword ptr [rsi+128]
+	movups xmmword ptr [rdi+128], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy128_16:
+	movups xmm0, xmmword ptr [rsi+112]
+	movups xmmword ptr [rdi+112], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy112_16:
+	movups xmm0, xmmword ptr [rsi+96]
+	movups xmmword ptr [rdi+96], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy96_16:
+	movups xmm0, xmmword ptr [rsi+80]
+	movups xmmword ptr [rdi+80], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy80_16:
+	movups xmm0, xmmword ptr [rsi+64]
+	movups xmmword ptr [rdi+64], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy64_16:
+	movups xmm0, xmmword ptr [rsi+48]
+	movups xmmword ptr [rdi+48], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy48_16:
+	movups xmm0, xmmword ptr [rsi+32]
+	movups xmmword ptr [rdi+32], xmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy32_16:
+	movups xmm0, xmmword ptr [rsi+16]
+	movups xmmword ptr [rdi+16], xmm0
 	# fallthrough
 
 	.p2align 6, 0x90, 24
@@ -1794,13 +1794,6 @@
 	movups xmm0, xmmword ptr [rsi]
 	movups xmmword ptr [rdi], xmm0
 	ret
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy256_32:
-	vmovups ymm0, ymmword ptr [rsi+224]
-	vmovups ymmword ptr [rdi+224], ymm0
-	jmp .memcpy224_32
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -2017,14 +2010,7 @@
 .memcpy225_32:
 	vmovups ymm0, ymmword ptr [rsi+193]
 	vmovups ymmword ptr [rdi+193], ymm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy224_32:
-	vmovups ymm0, ymmword ptr [rsi+192]
-	vmovups ymmword ptr [rdi+192], ymm0
-	jmp .memcpy192_32
+	jmp .memcpy224_32
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -2241,14 +2227,7 @@
 .memcpy193_32:
 	vmovups ymm0, ymmword ptr [rsi+161]
 	vmovups ymmword ptr [rdi+161], ymm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy192_32:
-	vmovups ymm0, ymmword ptr [rsi+160]
-	vmovups ymmword ptr [rdi+160], ymm0
-	jmp .memcpy160_32
+	jmp .memcpy192_32
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -2465,14 +2444,7 @@
 .memcpy161_32:
 	vmovups ymm0, ymmword ptr [rsi+129]
 	vmovups ymmword ptr [rdi+129], ymm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy160_32:
-	vmovups ymm0, ymmword ptr [rsi+128]
-	vmovups ymmword ptr [rdi+128], ymm0
-	jmp .memcpy128_32
+	jmp .memcpy160_32
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -2689,14 +2661,7 @@
 .memcpy129_32:
 	vmovups ymm0, ymmword ptr [rsi+97]
 	vmovups ymmword ptr [rdi+97], ymm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy128_32:
-	vmovups ymm0, ymmword ptr [rsi+96]
-	vmovups ymmword ptr [rdi+96], ymm0
-	jmp .memcpy96_32
+	jmp .memcpy128_32
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -2913,14 +2878,7 @@
 .memcpy97_32:
 	vmovups ymm0, ymmword ptr [rsi+65]
 	vmovups ymmword ptr [rdi+65], ymm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy96_32:
-	vmovups ymm0, ymmword ptr [rsi+64]
-	vmovups ymmword ptr [rdi+64], ymm0
-	jmp .memcpy64_32
+	jmp .memcpy96_32
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -3137,14 +3095,7 @@
 .memcpy65_32:
 	vmovups ymm0, ymmword ptr [rsi+33]
 	vmovups ymmword ptr [rdi+33], ymm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy64_32:
-	vmovups ymm0, ymmword ptr [rsi+32]
-	vmovups ymmword ptr [rdi+32], ymm0
-	jmp .memcpy32_32
+	jmp .memcpy64_32
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -3361,6 +3312,55 @@
 .memcpy33_32:
 	vmovups ymm0, ymmword ptr [rsi+1]
 	vmovups ymmword ptr [rdi+1], ymm0
+	jmp .memcpy32_32
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy256_32:
+	vmovups ymm0, ymmword ptr [rsi+224]
+	vmovups ymmword ptr [rdi+224], ymm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy224_32:
+	vmovups ymm0, ymmword ptr [rsi+192]
+	vmovups ymmword ptr [rdi+192], ymm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy192_32:
+	vmovups ymm0, ymmword ptr [rsi+160]
+	vmovups ymmword ptr [rdi+160], ymm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy160_32:
+	vmovups ymm0, ymmword ptr [rsi+128]
+	vmovups ymmword ptr [rdi+128], ymm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy128_32:
+	vmovups ymm0, ymmword ptr [rsi+96]
+	vmovups ymmword ptr [rdi+96], ymm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy96_32:
+	vmovups ymm0, ymmword ptr [rsi+64]
+	vmovups ymmword ptr [rdi+64], ymm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy64_32:
+	vmovups ymm0, ymmword ptr [rsi+32]
+	vmovups ymmword ptr [rdi+32], ymm0
 	# fallthrough
 
 	.p2align 6, 0x90, 24
@@ -3370,13 +3370,6 @@
 	vmovups ymmword ptr [rdi], ymm0
 	vzeroupper
 	ret
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy256_64:
-	vmovups zmm0, zmmword ptr [rsi+192]
-	vmovups zmmword ptr [rsi+192], zmm0
-	jmp .memcpy192_64
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -3817,14 +3810,7 @@
 .memcpy193_64:
 	vmovups zmm0, zmmword ptr [rsi+129]
 	vmovups zmmword ptr [rsi+129], zmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy192_64:
-	vmovups zmm0, zmmword ptr [rsi+128]
-	vmovups zmmword ptr [rsi+128], zmm0
-	jmp .memcpy128_64
+	jmp .memcpy192_64
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -4265,14 +4251,7 @@
 .memcpy129_64:
 	vmovups zmm0, zmmword ptr [rsi+65]
 	vmovups zmmword ptr [rsi+65], zmm0
-	# fallthrough
-
-	.p2align 6, 0x90, 24
-	.p2align 4, 0x90
-.memcpy128_64:
-	vmovups zmm0, zmmword ptr [rsi+64]
-	vmovups zmmword ptr [rsi+64], zmm0
-	jmp .memcpy64_64
+	jmp .memcpy128_64
 
 	.p2align 6, 0x90, 24
 	.p2align 4, 0x90
@@ -4713,6 +4692,27 @@
 .memcpy65_64:
 	vmovups zmm0, zmmword ptr [rsi+1]
 	vmovups zmmword ptr [rsi+1], zmm0
+	jmp .memcpy64_64
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy256_64:
+	vmovups zmm0, zmmword ptr [rsi+192]
+	vmovups zmmword ptr [rsi+192], zmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy192_64:
+	vmovups zmm0, zmmword ptr [rsi+128]
+	vmovups zmmword ptr [rsi+128], zmm0
+	# fallthrough
+
+	.p2align 6, 0x90, 24
+	.p2align 4, 0x90
+.memcpy128_64:
+	vmovups zmm0, zmmword ptr [rsi+64]
+	vmovups zmmword ptr [rsi+64], zmm0
 	# fallthrough
 
 	.p2align 6, 0x90, 24

@@ -1,4 +1,4 @@
-# ruby memcpy.rb > shortmemcpy.s
+# ruby memcpy.rb > memcpy.s
 
 require "set"
 require 'enumerator'
@@ -62,7 +62,15 @@ puts "
 blocks.keys.sort{|a,b|
     alen, amov = /memcpy(\d+)_(\d+)/.match(a)[1, 2].map(&:to_i)
     blen, bmov = /memcpy(\d+)_(\d+)/.match(b)[1, 2].map(&:to_i)
-    amov != bmov ? amov-bmov : blen-alen
+    if amov != bmov
+        amov-bmov 
+    elsif alen % amov == 0 && blen % bmov != 0
+        1
+    elsif alen % amov != 0 && blen % bmov == 0
+        -1
+    else
+        blen-alen
+    end
 }.append(nil).each_cons(2){|e|
     n, m = e[0], e[1]
     i = blocks[n]
