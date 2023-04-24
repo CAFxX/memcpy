@@ -16,18 +16,18 @@ static int randn(int n) {
     return (long long)(rand()) * (long long)(n) / RAND_MAX;
 }
 
-const int step = 1;
+const int step = 4;
 const int start = step;
-const int ul = 256;
+const int ul = 128;
 
 char *src = new char[ul];
 char *dst = new char[ul];
 
-static void BM_shortmemcpy16(benchmark::State& state) {
+static void BM_shortmemcpy16fixed(benchmark::State& state) {
     for (auto _ : state)
         shortmemcpy16(dst, src, state.range(0));
 }
-BENCHMARK(BM_shortmemcpy16)
+BENCHMARK(BM_shortmemcpy16fixed)
     ->ArgsProduct({benchmark::CreateDenseRange(start, ul, step)});
 
 
@@ -40,11 +40,11 @@ BENCHMARK(BM_shortmemcpy16random)
 
 
 
-static void BM_shortmemcpy32(benchmark::State& state) {
+static void BM_shortmemcpy32fixed(benchmark::State& state) {
     for (auto _ : state)
         shortmemcpy32(dst, src, state.range(0));
 }
-BENCHMARK(BM_shortmemcpy32)
+BENCHMARK(BM_shortmemcpy32fixed)
     ->ArgsProduct({benchmark::CreateDenseRange(start, ul, step)});
 
 
@@ -57,11 +57,11 @@ BENCHMARK(BM_shortmemcpy32random)
 
 
 /*
-static void BM_shortmemcpy64(benchmark::State& state) {
+static void BM_shortmemcpy64fixed(benchmark::State& state) {
     for (auto _ : state)
         shortmemcpy64(dst, src, state.range(0));
 }
-BENCHMARK(BM_shortmemcpy64)
+BENCHMARK(BM_shortmemcpy64fixed)
     ->ArgsProduct({benchmark::CreateDenseRange(start, ul, step)});
 
 
@@ -74,11 +74,11 @@ BENCHMARK(BM_shortmemcpy64random)
 */
 
 
-static void BM_builtinmemcpy(benchmark::State& state) {
+static void BM_builtinmemcpyfixed(benchmark::State& state) {
     for (auto _ : state)
         memcpy(dst, src, state.range(0));
 }
-BENCHMARK(BM_builtinmemcpy)
+BENCHMARK(BM_builtinmemcpyfixed)
     ->ArgsProduct({benchmark::CreateDenseRange(start, ul, step)});
 
 
