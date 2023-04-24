@@ -1,0 +1,83 @@
+#include <memory.h>
+
+<% 
+    ATTR = '__attribute__((target_clones("default","arch=x86-64","arch=x86-64-v2","arch=x86-64-v3","arch=x86-64-v4")))'
+    UL=256
+    CL=64
+%>
+
+static inline void prefetch(void *p) {
+    __builtin_prefetch(p);
+}
+
+<%= ATTR %> void optmemcpy(void *dst, void *src, unsigned int len) {
+    switch (len) {
+    case 0: return;
+    <% (1..UL).each{|x| %>
+    case <%= x %>: 
+        <% (1...x).select{|y| y%CL==0 }.each{|y| %>
+        prefetch(src+<%= y %>);
+        <% } %>
+        memcpy(dst, src, <%= x %>);
+        return;
+    <% } %>
+    default: memcpy(dst, src, len); return;
+    }
+}
+
+static inline int overlaps(void *dst, void *src, unsigned int len) {
+    if (src <= dst)
+        return src+len > dst;
+    return dst+len > src;
+}
+
+<%= ATTR %> void optmemmove(void *dst, void *src, unsigned int len) {
+    if (overlaps(dst, src, len)) {
+        switch (len) {
+            case 0: return;
+            <% (1..UL).each{|x| %>
+            case <%= x %>:
+                <% (1...x).select{|y| y%CL==0 }.each{|y| %>
+                prefetch(src+<%= y %>);
+                <% } %>
+                memmove(dst, src, <%= x %>);
+                return;
+            <% } %>
+            default: memmove(dst, src, len); return;
+        }
+    } else {
+        optmemcpy(dst, src, len);
+    }
+}
+
+<%= ATTR %> int optmemcmp(void *a, void *b, unsigned int len) {
+    switch (len) {
+    case 0: return 0;
+    <% (1..UL).each{|x| %>
+    case <%= x %>: return memcmp(a, b, <%= x %>);
+    <% } %>
+    default: return memcmp(a, b, len);
+    }
+}
+
+// memchr currently does not have a known-size optimized implementation
+
+<%= ATTR %> void optmemset(void *dst, unsigned char c, unsigned int len) {
+    switch (len) {
+    case 0: return;
+    <% (1..UL).each{|x| %>
+    case <%= x %>: memset(dst, c, <%= x %>); return;
+    <% } %>
+    default: memset(dst, c, len); return;
+    }
+}
+
+<%= ATTR %> void optmemzero(void *dst, unsigned int len) {
+    switch (len) {
+    case 0: return;
+    <% (1..UL).each{|x| %>
+    case <%= x %>: memset(dst, 0, <%= x %>); return;
+    <% } %>
+    default: memset(dst, 0, len); return;
+    }
+}
