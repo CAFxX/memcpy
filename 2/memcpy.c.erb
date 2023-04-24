@@ -13,14 +13,14 @@ static inline void prefetch(void *p) {
 <%= ATTR %> void optmemcpy(void *dst, void *src, unsigned int len) {
     switch (len) {
     case 0: return;
-    <% (1..UL).each{|x| %>
-    case <%= x %>: 
-        <% (1...x).select{|y| y%CL==0 }.each{|y| %>
+    <%- (1..UL).each{|x| -%>
+    case <%= x %>:
+        <%- (0...x).select{|y| y%CL==0 && y>0 }.each{|y| -%>
         prefetch(src+<%= y %>);
-        <% } %>
+        <%- } -%>
         memcpy(dst, src, <%= x %>);
         return;
-    <% } %>
+    <%- } -%>
     default: memcpy(dst, src, len); return;
     }
 }
@@ -35,14 +35,14 @@ static inline int overlaps(void *dst, void *src, unsigned int len) {
     if (overlaps(dst, src, len)) {
         switch (len) {
             case 0: return;
-            <% (1..UL).each{|x| %>
+            <%- (1..UL).each{|x| -%>
             case <%= x %>:
-                <% (1...x).select{|y| y%CL==0 }.each{|y| %>
+                <%- (0...x).select{|y| y%CL==0 && y>0 }.each{|y| -%>
                 prefetch(src+<%= y %>);
-                <% } %>
+                <%- } -%>
                 memmove(dst, src, <%= x %>);
                 return;
-            <% } %>
+            <%- } -%>
             default: memmove(dst, src, len); return;
         }
     } else {
@@ -53,9 +53,14 @@ static inline int overlaps(void *dst, void *src, unsigned int len) {
 <%= ATTR %> int optmemcmp(void *a, void *b, unsigned int len) {
     switch (len) {
     case 0: return 0;
-    <% (1..UL).each{|x| %>
-    case <%= x %>: return memcmp(a, b, <%= x %>);
-    <% } %>
+    <%- (1..UL).each{|x| -%>
+    case <%= x %>:
+        <%- (0...x).select{|y| y%CL==0 && y>0 }.each{|y| -%>
+        prefetch(a+<%= y %>);
+        prefetch(b+<%= y %>);
+        <%- } -%>
+        return memcmp(a, b, <%= x %>);
+    <%- } -%>
     default: return memcmp(a, b, len);
     }
 }
@@ -65,9 +70,9 @@ static inline int overlaps(void *dst, void *src, unsigned int len) {
 <%= ATTR %> void optmemset(void *dst, unsigned char c, unsigned int len) {
     switch (len) {
     case 0: return;
-    <% (1..UL).each{|x| %>
+    <%- (1..UL).each{|x| -%>
     case <%= x %>: memset(dst, c, <%= x %>); return;
-    <% } %>
+    <%- } -%>
     default: memset(dst, c, len); return;
     }
 }
@@ -75,9 +80,9 @@ static inline int overlaps(void *dst, void *src, unsigned int len) {
 <%= ATTR %> void optmemzero(void *dst, unsigned int len) {
     switch (len) {
     case 0: return;
-    <% (1..UL).each{|x| %>
+    <%- (1..UL).each{|x| -%>
     case <%= x %>: memset(dst, 0, <%= x %>); return;
-    <% } %>
+    <%- } -%>
     default: memset(dst, 0, len); return;
     }
 }
