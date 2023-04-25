@@ -19,7 +19,7 @@ def copyinsts(len, off)
     when 32
         ["vmovups ymm0, ymmword ptr [rsi#{off}]", "vmovups ymmword ptr [rdi#{off}], ymm0" ]
     when 64
-        ["vmovups zmm0, zmmword ptr [rsi#{off}]", "vmovups zmmword ptr [rsi#{off}], zmm0" ]
+        ["vmovups zmm0, zmmword ptr [rsi#{off}]", "vmovups zmmword ptr [rdi#{off}], zmm0" ]
     else
         throw "unknown len #{len}"
     end
